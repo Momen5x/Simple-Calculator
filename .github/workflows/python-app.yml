@@ -1,0 +1,28 @@
+name: Python Application CI
+
+on:
+  push:        # يتنفذ عند كل رفع كود (push)
+  pull_request: # وكمان عند أي Pull Request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest   # هيشتغل على سيرفر Ubuntu
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3   # ينزل الكود بتاعك
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'   # يستخدم آخر نسخة من Python 3
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # لو عندك ملف requirements.txt هيتم تثبيت المكتبات منه
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Run script
+        run: |
+          python calculator.py   # يشغّل برنامجك
