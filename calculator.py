@@ -9,23 +9,23 @@ try:
     z = float(input("Enter Any Number:"))
 
     if y == "+" :
-        print(x + z)
+        print(f"Result: {x + z}")
 
     elif y == "-" :
-        print(x - z)
+        print(f"Result: {x - z}")
 
     elif y == "/" :
-        print(x / z)
-
-    elif y == "*" :
-        print(x * z)
         if z != 0:
             print(f"Result: {x / z}")
         else:
             print("⚠️ Cannot divide by zero")
+    elif y == "*" :
+        print(f"Result: {x * z}")
+        
     else:
         print("⚠️ Invalid operation")
     
         
 except ValueError:
+
     print ("Enter Valid Number")
